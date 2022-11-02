@@ -9,8 +9,11 @@
 
 print("Welcome to Manny's :)")
 
-# Load products list
+# Empty products list
 products = []
+
+# Empty couriers list
+couriers = []
 
 # CREATE orders list of dictionaries
 orders = []
@@ -35,14 +38,29 @@ def product_menu():
         'Enter 3 to update existing product\n'
         'Enter 4 to delete a product\n')
 
+def couriers_menu():
+    print('*************Couriers menu*************')
+    print('Enter 0 to return to main menu\n'
+        'Enter 1 to print couriers list\n'
+        'Enter 2 to create new courier\n'
+        'Enter 3 to update existing courier\n'
+        'Enter 4 to delete a courier\n')
+
 def load_products():
-    # Reading products.txt file and adding each product to the products list
+    # Read products.txt file and adding 
+    # each product to the products list
     file = open('Practice\products.txt', 'r')
     for line in file.readlines():
         products.append(line.rstrip("\n"))
     print(products)
 
-# def load_couriers():
+def load_couriers():
+    # Read couriers.txt file and adding 
+    # each courier to the couriers list
+    words = open('Practice\products.txt', 'r')
+    for line in words.readlines():
+        couriers.append(line.rstrip("\n"))
+    print(couriers)
 
 def create_product():
     #  Get user input for product name
@@ -82,6 +100,11 @@ def save_products_list():
     with open('Practice\products.txt', 'w') as productlist:
         productlist.writelines(f'Product list: {products}\n')
     productlist.close()
+
+# def print_courier_list():
+# def new_courier():
+# def update_courier():
+# def delete_courier():
 
 # def save_courier_list():
 #     # Write out to a text file using file content manager
@@ -219,38 +242,43 @@ while True:
         # Couriers menu
         # If user input is 2:
         elif val == 2:
+            # print courier menu options
+            couriers_menu()
+
             while True:
                 #  Get user input for couriers menu option
                 coury = int(input('Enter a number to access couriers menu: '))
 
-                if coury in (0, 1, 2, 3, 4, 5):
+                if coury in (0, 1, 2, 3, 4):
                     #  If user input is 0:
                     if coury == 0:
                     #  Return to main menu
                         main_menu()
-                    
-                    #  If user input is 1, print orders dictionary
-                    elif coury == 1:
-                        print(f'Orders List:\n{orders}')
-
-                    #  If user input is 2, create new order and append to orders list.
-                    #elif coury == 2:
-                        #create_new_courier()
-
-                    #  If user input is 3, update existing order status
-                    #elif coury == 3:
-                        #update_couriers()
-                    
-                    #  If user input is 4, update order
-                    #elif coury == 4:
-                        #delete_courier()
-                    
-                    couriers_continue = input("Continue? (yes/no): ")
-                    if couriers_continue == "no":
                         break
+                    
+                #     #  If user input is 1, print couriers list
+                #     elif coury == 1:
+                #         #print_courier_list()
 
-                else:
-                    print("Wrong input. Enter a value from 0 to 5")
+                #     #  If user input is 2, create new courier 
+                #     #  and append to couriers list.
+                #     #elif coury == 2:
+                #         #new_courier()
+
+                #     #  If user input is 3, update existing courier
+                #     #elif coury == 3:
+                #         #update_courier()
+                    
+                #     #  If user input is 4, delete courier
+                #     #elif coury == 4:
+                #         #delete_courier()
+                    
+                #     couriers_continue = input("Continue? (yes/no): ")
+                #     if couriers_continue == "no":
+                #         break
+
+                # else:
+                #     print("Wrong input. Enter a value from 0 to 5")
 
         # Orders menu
         # If user input is 3:
