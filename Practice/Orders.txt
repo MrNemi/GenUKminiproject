@@ -1,0 +1,1 @@
+Order list: [{'customer_name': 'cvcxvxc', 'customer_address': 'xcvxvcx', 'customer_phone': 'xcvxcv', 'order_status': 'PREPARING'}, {'customer_name': 'dcsdvd', 'customer_address': 'xvvxv', 'customer_phone': 'cvxcv', 'order_status': 'PREPARING'}]

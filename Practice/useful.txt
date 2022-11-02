@@ -1,0 +1,6 @@
+# get the list of data using items() method
+for key, values in data.items():
+    for i in values:
+        print(key, " : ", i)
+
+order_status_list = ["Preparing", "Awaiting Pickup", "Out for Delivery", "Delivered"]
