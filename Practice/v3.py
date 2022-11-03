@@ -98,7 +98,7 @@ def delete_product():
 def save_products_list():
     # Write out to a text file using file content manager
     with open('Practice\products.txt', 'w') as productlist:
-        productlist.writelines('{products}')
+        productlist.writelines(f'Products: {products}\n')
     productlist.close()
 
 def print_courier_list():
@@ -111,7 +111,7 @@ def print_courier_list():
 def new_courier():
     # Get user input to update couriers list
     courier_name = input('Enter courier name: ')
-    couriers.append(courier_name)
+    couriers.append(courier_name.title())
 
     # printing all the orders
     print("\nCouriers available:\n")
@@ -138,15 +138,14 @@ def update_courier():
     new_courier = input('Enter new courier name: ')
     #  UPDATE product name at index in products list
     couriers[courier_index] = new_courier.title()
-    print(couriers)
 
 # def delete_courier():
 
-# def save_courier_list():
-#     # Write out to a text file using file content manager
-#     with open('Practice\couriers.txt', 'w') as courierlist:
-#         courierlist.writelines(f'Courier list: {couriers}\n')
-#     courierlist.close()
+def save_courier_list():
+    # Write out to a text file using file content manager
+    with open('Practice\couriers.txt', 'w') as courierlist:
+        courierlist.writelines(f'Courier list: {couriers}\n')
+    courierlist.close()
 
 def create_new_order():
     # Get user input to update orders dictionary
@@ -232,7 +231,7 @@ while True:
         # If user input is 0, exit app
         if val == 0:
             save_products_list()
-            # save_courier_list()
+            save_courier_list()
             print('You have logged out of the app.')
         
         # Products menu

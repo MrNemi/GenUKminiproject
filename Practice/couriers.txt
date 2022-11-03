@@ -1,1 +1,1 @@
-Courier list: ['mark']
+Courier list: ['Mark', 'John']
