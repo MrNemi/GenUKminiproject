@@ -9,12 +9,6 @@
 
 print("Welcome to Manny's :)")
 
-# Empty products list
-products = []
-
-# Empty couriers list
-couriers = []
-
 # CREATE orders list of dictionaries
 orders = []
 new_order = {}
@@ -47,31 +41,35 @@ def couriers_menu():
         'Enter 4 to delete a courier\n')
 
 def load_products():
+    # Empty products list
+    products = []
     # Read products.txt file and adding 
     # each product to the products list
     file = open('Practice\products.txt', 'r')
     for line in file.readlines():
         products.append(line.rstrip("\n"))
     print(products)
+    file.close()
 
 def load_couriers():
+    # Empty couriers list
+    couriers = []
     # Read couriers.txt file and adding 
     # each courier to the couriers list
-    words = open('Practice\products.txt', 'r')
+    words = open('Practice\couriers.txt', 'r')
     for line in words.readlines():
         couriers.append(line.rstrip("\n"))
     print(couriers)
+    words.close()
 
 def create_product():
     #  Get user input for product name
     new = input('Enter a new product: ')
     #  Append product name to products list
-    # with open('Practice\products.txt', 'w') as prod:
-    #     for product in products:
-    #         prod.write(new)
-    products.append(new)
-    for product in products:
-        print(product) 
+    with open('Practice\products.txt', 'w') as prod:
+        # for product in products:
+        prod.write(new.title())
+    prod.close()
 
 def update_product():
     # using list comprehension to print product names with its index value
@@ -98,7 +96,7 @@ def delete_product():
 def save_products_list():
     # Write out to a text file using file content manager
     with open('Practice\products.txt', 'w') as productlist:
-        productlist.writelines(f'Product list: {products}\n')
+        productlist.writelines('{products}')
     productlist.close()
 
 # def print_courier_list():
