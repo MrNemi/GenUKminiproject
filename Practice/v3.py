@@ -124,7 +124,22 @@ def new_courier():
         courierlist.writelines(f'Courier list: {couriers}\n')
     courierlist.close()
 
-# def update_courier():
+def update_courier():
+    # PRINT courier name with its index values
+    print("\nCouriers List:\n")
+    i = 0
+    for courier in couriers:
+        print(f"Courier: {courier}, Index: {i}\n")
+        i += 1
+
+    # GET user input for courier index value
+    courier_index = int(input("Select index for the courier you wish to update: "))
+    #  GET user input for new courier name
+    new_courier = input('Enter new courier name: ')
+    #  UPDATE product name at index in products list
+    couriers[courier_index] = new_courier.title()
+    print(couriers)
+
 # def delete_courier():
 
 # def save_courier_list():
@@ -286,9 +301,9 @@ while True:
                     elif coury == 2:
                         new_courier()
 
-                #     #  If user input is 3, update existing courier
-                #     #elif coury == 3:
-                #         #update_courier()
+                    #  If user input is 3, update existing courier
+                    elif coury == 3:
+                        update_courier()
                     
                 #     #  If user input is 4, delete courier
                 #     #elif coury == 4:
