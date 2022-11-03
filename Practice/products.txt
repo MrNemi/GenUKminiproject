@@ -1,1 +1,1 @@
-pancakes
+{products}

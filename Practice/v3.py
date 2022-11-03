@@ -9,6 +9,12 @@
 
 print("Welcome to Manny's :)")
 
+# Empty products list
+products = []
+
+# Empty couriers list
+couriers = []
+
 # CREATE orders list of dictionaries
 orders = []
 new_order = {}
@@ -41,8 +47,6 @@ def couriers_menu():
         'Enter 4 to delete a courier\n')
 
 def load_products():
-    # Empty products list
-    products = []
     # Read products.txt file and adding 
     # each product to the products list
     file = open('Practice\products.txt', 'r')
@@ -52,8 +56,6 @@ def load_products():
     file.close()
 
 def load_couriers():
-    # Empty couriers list
-    couriers = []
     # Read couriers.txt file and adding 
     # each courier to the couriers list
     words = open('Practice\couriers.txt', 'r')
@@ -99,8 +101,29 @@ def save_products_list():
         productlist.writelines('{products}')
     productlist.close()
 
-# def print_courier_list():
-# def new_courier():
+def print_courier_list():
+    # printing out the couriers list
+    print("\nCouriers available:\n")
+    for courier in couriers:
+        print(courier)
+    print("\n")
+
+def new_courier():
+    # Get user input to update couriers list
+    courier_name = input('Enter courier name: ')
+    couriers.append(courier_name)
+
+    # printing all the orders
+    print("\nCouriers available:\n")
+    for courier in couriers:
+        print(courier)
+    print("\n")
+
+    # Write out to a text file using file content manager
+    with open('Practice\couriers.txt', 'w') as courierlist:
+        courierlist.writelines(f'Courier list: {couriers}\n')
+    courierlist.close()
+
 # def update_courier():
 # def delete_courier():
 
@@ -254,14 +277,14 @@ while True:
                         main_menu()
                         break
                     
-                #     #  If user input is 1, print couriers list
-                #     elif coury == 1:
-                #         #print_courier_list()
+                    #  If user input is 1, print couriers list
+                    elif coury == 1:
+                        print_courier_list()
 
-                #     #  If user input is 2, create new courier 
-                #     #  and append to couriers list.
-                #     #elif coury == 2:
-                #         #new_courier()
+                    #  If user input is 2, create new courier 
+                    #  and append to couriers list.
+                    elif coury == 2:
+                        new_courier()
 
                 #     #  If user input is 3, update existing courier
                 #     #elif coury == 3:
