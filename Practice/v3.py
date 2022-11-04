@@ -58,10 +58,10 @@ def load_products():
 def load_couriers():
     # Read couriers.txt file and adding 
     # each courier to the couriers list
-    words = open('Practice\couriers.txt', 'r')
+    words = open('Practice\couriers.txt', 'r+')
     for line in words.readlines():
-        couriers.append(line.rstrip("\n"))
-    print(couriers)
+        couriers.append(line)
+        print(line)
     words.close()
 
 def create_product():
@@ -124,7 +124,8 @@ def new_courier():
         courierlist.writelines(f'Courier list: {couriers}\n')
     courierlist.close()
 
-def update_courier():
+
+def courier_index_list():
     # PRINT courier name with its index values
     print("\nCouriers List:\n")
     i = 0
@@ -132,6 +133,9 @@ def update_courier():
         print(f"Courier: {courier}, Index: {i}\n")
         i += 1
 
+
+def update_courier():
+    courier_index_list()
     # GET user input for courier index value
     courier_index = int(input("Select index for the courier you wish to update: "))
     #  GET user input for new courier name
@@ -139,7 +143,13 @@ def update_courier():
     #  UPDATE product name at index in products list
     couriers[courier_index] = new_courier.title()
 
-# def delete_courier():
+def delete_courier():
+    courier_index_list()
+    # get user input for courier index value
+    unit = int(input('Enter index value for courier to be deleted: '))
+    # delete product at index in products list
+    couriers.pop(unit)
+    print(couriers)
 
 def save_courier_list():
     # Write out to a text file using file content manager
@@ -293,7 +303,7 @@ while True:
                     
                     #  If user input is 1, print couriers list
                     elif coury == 1:
-                        print_courier_list()
+                        load_couriers()
 
                     #  If user input is 2, create new courier 
                     #  and append to couriers list.
@@ -301,8 +311,8 @@ while True:
                         new_courier()
 
                     #  If user input is 3, update existing courier
-                    elif coury == 3:
-                        update_courier()
+                    # elif coury == 3:
+                    #     update_courier()
                     
                 #     #  If user input is 4, delete courier
                 #     #elif coury == 4:
