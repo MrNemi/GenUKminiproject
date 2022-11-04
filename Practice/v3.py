@@ -2,12 +2,6 @@
 
 # LOAD products list from products.txt
 # LOAD couriers list from couriers.txt
-# CREATE orders list of dictionaries (done)
-# CREATE order status list (done)
-# PRINT main menu options (done)
-# GET user input for main menu option (done)
-
-print("Welcome to Manny's :)")
 
 # Empty products list
 products = []
@@ -24,8 +18,9 @@ order_status_list = ["Preparing", "Awaiting Pickup", "Out for Delivery", "Delive
 
 # Core Functions
 def main_menu():
-    print('*************Main menu*************')
-    print('Enter 0 to save data and exit app\n'
+    print("Welcome to Manny's :)\n"
+        '*************Main menu*************\n'
+        'Enter 0 to save data and exit app\n'
         'Enter 1 to access product menu\n'
         'Enter 2 to access couriers menu\n'
         'Enter 3 to access orders menu\n')
@@ -82,7 +77,7 @@ def update_product():
     #  GET user input for new product name
     new = input('Enter a new product: ')
     #  UPDATE product name at index in products list
-    products[num] = new
+    products[num] = new.title()
     print(products)
 
 def delete_product():
@@ -113,17 +108,16 @@ def new_courier():
     courier_name = input('Enter courier name: ')
     couriers.append(courier_name.title())
 
-    # printing all the orders
+    # printing all the couriers
     print("\nCouriers available:\n")
     for courier in couriers:
         print(courier)
     print("\n")
 
-    # Write out to a text file using file content manager
+    #Write out to a text file using file content manager
     with open('Practice\couriers.txt', 'w') as courierlist:
         courierlist.writelines(f'Courier list: {couriers}\n')
     courierlist.close()
-
 
 def courier_index_list():
     # PRINT courier name with its index values
@@ -132,7 +126,6 @@ def courier_index_list():
     for courier in couriers:
         print(f"Courier: {courier}, Index: {i}\n")
         i += 1
-
 
 def update_courier():
     courier_index_list()
@@ -153,7 +146,7 @@ def delete_courier():
 
 def save_courier_list():
     # Write out to a text file using file content manager
-    with open('Practice\couriers.txt', 'w') as courierlist:
+    with open('Practice\couriers.txt', 'a') as courierlist:
         courierlist.writelines(f'Courier list: {couriers}\n')
     courierlist.close()
 
@@ -240,8 +233,8 @@ while True:
     if val in (0, 1, 2, 3):
         # If user input is 0, exit app
         if val == 0:
-            save_products_list()
-            save_courier_list()
+            # save_products_list()
+            # save_courier_list()
             print('You have logged out of the app.')
         
         # Products menu
@@ -311,8 +304,8 @@ while True:
                         new_courier()
 
                     #  If user input is 3, update existing courier
-                    # elif coury == 3:
-                    #     update_courier()
+                    elif coury == 3:
+                        update_courier()
                     
                 #     #  If user input is 4, delete courier
                 #     #elif coury == 4:
