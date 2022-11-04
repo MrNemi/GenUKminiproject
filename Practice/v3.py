@@ -59,6 +59,18 @@ def load_couriers():
         print(line)
     words.close()
 
+def save_products_list():
+    # Write out to a text file using file content manager
+    with open('Practice\products.txt', 'w') as productlist:
+        productlist.writelines('{products}')
+    productlist.close()
+
+def save_courier_list():
+    # Write out to a text file using file content manager
+    with open('Practice\couriers.txt', 'a') as courierlist:
+        courierlist.writelines('{couriers}')
+    courierlist.close()
+
 def create_product():
     #  Get user input for product name
     new = input('Enter a new product: ')
@@ -67,6 +79,7 @@ def create_product():
         # for product in products:
         prod.write(new.title())
     prod.close()
+    load_products()
 
 def update_product():
     # using list comprehension to print product names with its index value
@@ -89,12 +102,7 @@ def delete_product():
     # delete product at index in products list
     products.pop(num)
     print(products)
-
-def save_products_list():
-    # Write out to a text file using file content manager
-    with open('Practice\products.txt', 'w') as productlist:
-        productlist.writelines(f'Products: {products}\n')
-    productlist.close()
+    save_products_list()
 
 def print_courier_list():
     # printing out the couriers list
@@ -143,12 +151,6 @@ def delete_courier():
     # delete product at index in products list
     couriers.pop(unit)
     print(couriers)
-
-def save_courier_list():
-    # Write out to a text file using file content manager
-    with open('Practice\couriers.txt', 'a') as courierlist:
-        courierlist.writelines(f'Courier list: {couriers}\n')
-    courierlist.close()
 
 def create_new_order():
     # Get user input to update orders dictionary
@@ -233,8 +235,8 @@ while True:
     if val in (0, 1, 2, 3):
         # If user input is 0, exit app
         if val == 0:
-            # save_products_list()
-            # save_courier_list()
+            save_products_list()
+            save_courier_list()
             print('You have logged out of the app.')
         
         # Products menu
