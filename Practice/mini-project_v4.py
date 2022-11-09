@@ -1,5 +1,6 @@
 # Program objectives
-# Now that we've learned how to work with two-dimensional data, let's refactor our app to use dictionaries
+# Now that we've learned how to work with two-dimensional data, 
+# let's refactor our app to use dictionaries
 # for both product and courier.
 
 # Building upon our use of a courier index within our order, 
@@ -14,9 +15,11 @@
 
 # Empty products dictionary
 products = []
+new_product = {}
 
 # Empty couriers dictionary
 couriers = []
+new_courier = {}
 
 # CREATE orders list of dictionaries
 orders = []
@@ -50,46 +53,39 @@ def couriers_menu():
         'Enter 3 to update existing courier\n'
         'Enter 4 to delete a courier\n')
 
-def load_products():
-    # Read products.txt file and adding 
-    # each product to the products list
-    file = open('Practice\products.txt', 'r')
-    for line in file.readlines():
-        products.append(line.rstrip("\n"))
-    print(products)
-    file.close()
+# def load_products():
+#     # Read products.txt file and adding 
+#     # each product to the products list
+#     # file = open('Practice\products.txt', 'r')
+#     # for line in file.readlines():
+#     #     products.append(line.rstrip("\n"))
+#     # print(products)
+#     # file.close()
 
-def load_couriers():
-    # Read couriers.txt file and adding 
-    # each courier to the couriers list
-    words = open('Practice\couriers.txt', 'r+')
-    for line in words.readlines():
-        couriers.append(line)
-        print(line)
-    words.close()
+# def load_couriers():
+#     # Read couriers.txt file and adding 
+#     # each courier to the couriers list
+#     # words = open('Practice\couriers.txt', 'r+')
+#     # for line in words.readlines():
+#     #     couriers.append(line)
+#     #     print(line)
+#     # words.close()
 
-def save_products_list():
-    # Write out to a text file using file content manager
-    with open('Practice\products.txt', 'w') as productlist:
-        productlist.writelines('{products}')
-    productlist.close()
+# def save_products_list():
+#     # Write out to a csv file using file content manager
 
-def save_courier_list():
-    # Write out to a text file using file content manager
-    with open('Practice\couriers.txt', 'a') as courierlist:
-        courierlist.writelines('{couriers}')
-    courierlist.close()
+# def save_courier_list():
+#     # Write out to a csv file using file content manager
 
 def create_product():
     try:
-        #  Get user input for product name
-        new = input('Enter a new product: ')
-        #  Append product name to products list
-        with open('Practice\products.txt', 'w') as prod:
-            # for product in products:
-            prod.write(new.title())
-        prod.close()
-        load_products()
+        product_name = input('Enter customer name: ')
+        price = float(input('Enter product price: £'))
+        new_product = {'name': product_name,
+                'price': price}
+
+        products.append(new_product)
+        print(products)
     except Exception as e:
         print(e)
         print("Enter valid input.")
@@ -128,6 +124,8 @@ def new_courier():
     # Get user input to update couriers list
     courier_name = input('Enter courier name: ')
     couriers.append(courier_name.title())
+
+
 
     # printing all the couriers
     print("\nCouriers available:\n")
