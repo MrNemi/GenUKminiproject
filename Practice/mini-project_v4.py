@@ -111,7 +111,6 @@ def delete_product():
     # delete product at index in products list
     products.pop(num)
     print(products)
-    save_products_list()
 
 def print_courier_list():
     # printing out the couriers list
@@ -123,20 +122,17 @@ def print_courier_list():
 def new_courier():
     # Get user input to update couriers list
     courier_name = input('Enter courier name: ')
-    couriers.append(courier_name.title())
-
-
+    courier_name.title()
+    mobile_no = input('Enter courier phone number: ')
+    new_courier = {'name': courier_name,
+            'phone': mobile_no}
+    couriers.append(new_courier)
 
     # printing all the couriers
     print("\nCouriers available:\n")
-    for courier in couriers:
-        print(courier)
+    for new_courier in couriers:
+        print(new_courier)
     print("\n")
-
-    #Write out to a text file using file content manager
-    with open('Practice\couriers.txt', 'w') as courierlist:
-        courierlist.writelines(f'Courier list: {couriers}\n')
-    courierlist.close()
 
 def courier_index_list():
     # PRINT courier name with its index values
