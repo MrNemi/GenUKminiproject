@@ -102,7 +102,7 @@ def update_product():
     prod_index = int(input("Select index for the product you wish to update: "))
     print(products[prod_index])
     edit = products[prod_index]
-    
+
     # FOR EACH key-value pair in selected order:
     for key, value in edit.items():
         print(f"Key: {key}, Value: {value}")
@@ -121,7 +121,7 @@ def delete_product():
         print(list((products[i], i)))
     # get user input for product index value
     num = int(input('Enter index value for product to be deleted: '))
-    # delete product at index in products list
+    # delete product dictionary at index in products list
     products.pop(num)
     print(products)
 
@@ -132,20 +132,16 @@ def print_courier_list():
         print(courier)
     print("\n")
 
-def new_courier():
+def new_couriers():
     # Get user input to update couriers list
-    courier_name = input('Enter courier name: ')
-    courier_name.title()
+    courier_name = input('Enter courier name: ').title()
     mobile_no = input('Enter courier phone number: ')
-    new_courier = {'name': courier_name,
-            'phone': mobile_no}
+    new_courier = {'Name': courier_name,
+            'Phone': mobile_no}
     couriers.append(new_courier)
 
     # printing all the couriers
-    print("\nCouriers available:\n")
-    for new_courier in couriers:
-        print(new_courier)
-    print("\n")
+    print_courier_list()
 
 def courier_index_list():
     # PRINT courier name with its index values
@@ -159,16 +155,26 @@ def update_courier():
     courier_index_list()
     # GET user input for courier index value
     courier_index = int(input("Select index for the courier you wish to update: "))
-    #  GET user input for new courier name
-    new_courier = input('Enter new courier name: ')
-    #  UPDATE product name at index in products list
-    couriers[courier_index] = new_courier.title()
+    print(couriers[courier_index])
+    change = couriers[courier_index]
+
+    # FOR EACH key-value pair in selected order:
+    for key, value in change.items():
+        print(f"Key: {key}, Value: {value}")
+        # GET user input for updated property
+        update = input("Enter new value or press enter to continue: ")
+        # If user input is blank, do not update this property
+        if update.strip() == '':
+            continue
+        # Else, update the property value with user input
+        else:
+            change[key] = update
 
 def delete_courier():
     courier_index_list()
     # get user input for courier index value
     unit = int(input('Enter index value for courier to be deleted: '))
-    # delete product at index in products list
+    # delete courier dict at index in products list
     couriers.pop(unit)
     print(couriers)
 
@@ -327,27 +333,28 @@ while True:
                     
                     #  If user input is 1, print couriers list
                     elif coury == 1:
-                        load_couriers()
+                        # load_couriers()
+                        print_courier_list()
 
-                    #  If user input is 2, create new courier 
+                    #  If user input is 2, create new courier dict
                     #  and append to couriers list.
                     elif coury == 2:
-                        new_courier()
+                        new_couriers()
 
                     #  If user input is 3, update existing courier
                     elif coury == 3:
                         update_courier()
                     
-                #     #  If user input is 4, delete courier
-                #     #elif coury == 4:
-                #         #delete_courier()
+                    #  If user input is 4, delete courier
+                    elif coury == 4:
+                        delete_courier()
                     
-                #     couriers_continue = input("Continue? (yes/no): ")
-                #     if couriers_continue == "no":
-                #         break
+                    couriers_continue = input("Continue? (yes/no): ")
+                    if couriers_continue == "no":
+                        break
 
-                # else:
-                #     print("Wrong input. Enter a value from 0 to 5")
+                else:
+                    print("Wrong input. Enter a value from 0 to 5")
 
         # Orders menu
         # If user input is 3:
