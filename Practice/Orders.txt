@@ -1,1 +1,1 @@
-Order list: [{'customer_name': 'cvcxvxc', 'customer_address': 'xcvxvcx', 'customer_phone': 'xcvxcv', 'order_status': 'PREPARING'}, {'customer_name': 'dcsdvd', 'customer_address': 'xvvxv', 'customer_phone': 'cvxcv', 'order_status': 'PREPARING'}]
+Order list: [{'customer_name': 'john', 'customer_address': 'Unit 2, 12 Main Street, LONDON, WH1 2ER', 'customer_phone': '07901098935', 'courier': '0', 'order_status': 'PREPARING'}]

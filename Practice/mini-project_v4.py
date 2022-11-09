@@ -2,16 +2,12 @@
 # Now that we've learned how to work with two-dimensional data, 
 # let's refactor our app to use dictionaries
 # for both product and courier.
-
 # Building upon our use of a courier index within our order, 
 # let's create a list of product indexes now for order items.
-
 # We'll also need to refactor our storage layer to use .csv files 
 # rather than .txt to bring back our persistence functionality.
-
 # To show that our code works, we will also need to write unit 
 # tests to prove that our app works correctly.
-
 
 # Empty products dictionary
 products = []
@@ -53,29 +49,26 @@ def couriers_menu():
         'Enter 3 to update existing courier\n'
         'Enter 4 to delete a courier\n')
 
+def orders_menu():
+    print('*************Orders menu*************')
+    print('Enter 0 to return to main menu\n'
+        'Enter 1 to print orders list\n'
+        'Enter 2 to create new order\n'
+        'Enter 3 to update existing order status\n'
+        'Enter 4 to update existing order\n'
+        'Enter 5 to delete an order\n')
+
 # def load_products():
-#     # Read products.txt file and adding 
-#     # each product to the products list
-#     # file = open('Practice\products.txt', 'r')
-#     # for line in file.readlines():
-#     #     products.append(line.rstrip("\n"))
-#     # print(products)
-#     # file.close()
+    # Read products.csv file
 
 # def load_couriers():
-#     # Read couriers.txt file and adding 
-#     # each courier to the couriers list
-#     # words = open('Practice\couriers.txt', 'r+')
-#     # for line in words.readlines():
-#     #     couriers.append(line)
-#     #     print(line)
-#     # words.close()
+    # Read couriers.csv file
 
 # def save_products_list():
-#     # Write out to a csv file using file content manager
+    # Write out to a csv file using file content manager
 
 # def save_courier_list():
-#     # Write out to a csv file using file content manager
+    # Write out to a csv file using file content manager
 
 def create_product():
     try:
@@ -183,12 +176,16 @@ def create_new_order():
     customer_name = input('Enter customer name: ')
     customer_address = input('Enter customer address: ')
     customer_phone = input('Enter customer phone number: ')
-    courier = input('Enter courier index: ') # courier index
+
+    # PRINT couriers list with index value for each courier
+    print_courier_list()
+    coury_index = input('Enter courier index: ') # courier index
     order_status = 'PREPARING'
+
     new_order = {'customer_name': customer_name,
                 'customer_address': customer_address,
                 'customer_phone': customer_phone,
-                'courier': courier,
+                'courier': coury_index,
                 'order_status': order_status}
     orders.append(new_order)
 
@@ -359,6 +356,9 @@ while True:
         # Orders menu
         # If user input is 3:
         elif val == 3:
+            # print orders menu
+            orders_menu()
+
             while True:
                 #  Get user input for orders menu option
                 num = int(input('Enter a number to access orders menu: '))
