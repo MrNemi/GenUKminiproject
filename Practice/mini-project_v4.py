@@ -1,12 +1,21 @@
 # Program objectives
+# Now that we've learned how to work with two-dimensional data, let's refactor our app to use dictionaries
+# for both product and courier.
 
-# LOAD products list from products.txt
-# LOAD couriers list from couriers.txt
+# Building upon our use of a courier index within our order, 
+# let's create a list of product indexes now for order items.
 
-# Empty products list
+# We'll also need to refactor our storage layer to use .csv files 
+# rather than .txt to bring back our persistence functionality.
+
+# To show that our code works, we will also need to write unit 
+# tests to prove that our app works correctly.
+
+
+# Empty products dictionary
 products = []
 
-# Empty couriers list
+# Empty couriers dictionary
 couriers = []
 
 # CREATE orders list of dictionaries
