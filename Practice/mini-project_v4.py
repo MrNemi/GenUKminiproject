@@ -79,7 +79,7 @@ def couriers_menu():
 
 def create_product():
     try:
-        product_name = input('Enter customer name: ')
+        product_name = input('Enter product name: ').title()
         price = float(input('Enter product price: £'))
         new_product = {'name': product_name,
                 'price': price}
@@ -91,16 +91,29 @@ def create_product():
         print("Enter valid input.")
 
 def update_product():
-    # using list comprehension to print product names with its index value
-    for i in range(len(products)):
-        print (list((products[i], i)))
-    #  GET user input for product index value
-    num = int(input('Enter index value for product to be updated: '))
-    #  GET user input for new product name
-    new = input('Enter a new product: ')
-    #  UPDATE product name at index in products list
-    products[num] = new.title()
-    print(products)
+    # PRINT product list with its index values
+    print("\nProducts List:\n")
+    i = 0
+    for new_product in products:
+        print(f"Product: {new_product}\nIndex: {i}\n")
+        i += 1
+
+    # GET user input for product index value
+    prod_index = int(input("Select index for the product you wish to update: "))
+    print(products[prod_index])
+    edit = products[prod_index]
+    
+    # FOR EACH key-value pair in selected order:
+    for key, value in edit.items():
+        print(f"Key: {key}, Value: {value}")
+        # GET user input for updated property
+        update = input("Enter new value or press enter to continue: ")
+        # If user input is blank, do not update this property
+        if update.strip() == '':
+            continue
+        # Else, update the property value with user input
+        else:
+            edit[key] = update
 
 def delete_product():
     # print products list and index
@@ -164,10 +177,12 @@ def create_new_order():
     customer_name = input('Enter customer name: ')
     customer_address = input('Enter customer address: ')
     customer_phone = input('Enter customer phone number: ')
+    courier = input('Enter courier index: ') # courier index
     order_status = 'PREPARING'
     new_order = {'customer_name': customer_name,
                 'customer_address': customer_address,
                 'customer_phone': customer_phone,
+                'courier': courier,
                 'order_status': order_status}
     orders.append(new_order)
 
@@ -242,8 +257,9 @@ while True:
     if val in (0, 1, 2, 3):
         # If user input is 0, exit app
         if val == 0:
-            save_products_list()
-            save_courier_list()
+            # save_products_list()
+            # save_courier_list()
+            # save_order_list()
             print('You have logged out of the app.')
         
         # Products menu
