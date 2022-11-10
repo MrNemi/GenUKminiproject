@@ -67,8 +67,15 @@ def orders_menu():
 # def load_couriers():
     # Read couriers.csv file
 
-# def save_products_list():
+def save_products_list():
     # Write out to a csv file using file content manager
+    with open('Practice/products.csv', mode='w') as csv_file:
+        headers = ['name', 'price']
+        writer = csv.DictWriter(csv_file, fieldnames = headers)
+
+        writer.writeheader()
+        for new_product in products:
+            writer.writerow(new_product)
 
 def save_courier_list():
     # Write out to a csv file using file content manager
@@ -79,6 +86,16 @@ def save_courier_list():
         writer.writeheader()
         for new_courier in couriers:
             writer.writerow(new_courier)
+
+# def save_order_list():
+#     # Write out to a csv file
+#     with open('Practice/orders.csv', mode='w') as csv_file:
+#         headers = ['name', 'price']
+#         writer = csv.DictWriter(csv_file, fieldnames = headers)
+
+#         writer.writeheader()
+#         for new_product in products:
+#             writer.writerow(new_product)
 
 def create_product():
     try:
@@ -205,8 +222,6 @@ def create_new_order():
         print(order)
     print("\n")
 
-    # Write out to a csv file
-
 def order_list():
     # PRINT orders list with its index values
     print("\nOrders List:\n")
@@ -267,7 +282,7 @@ while True:
     if val in (0, 1, 2, 3):
         # If user input is 0, exit app
         if val == 0:
-            # save_products_list()
+            save_products_list()
             save_courier_list()
             # save_order_list()
             print('You have logged out of the app.')
