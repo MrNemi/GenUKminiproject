@@ -24,6 +24,9 @@ new_order = {}
 # CREATE order status list
 order_status_list = ["Preparing", "Awaiting Pickup", "Out for Delivery", "Delivered"]
 
+# Import csv module
+import csv
+
 # Core Functions
 def main_menu():
     print("Welcome to Manny's :)\n"
@@ -67,8 +70,15 @@ def orders_menu():
 # def save_products_list():
     # Write out to a csv file using file content manager
 
-# def save_courier_list():
+def save_courier_list():
     # Write out to a csv file using file content manager
+    with open('couriers.csv', mode='w') as csv_file:
+        fieldnames = ['name', 'phone number']
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+        writer.writeheader()
+        for courier in couriers:
+            writer.writerow({courier})
 
 def create_product():
     try:
@@ -195,10 +205,7 @@ def create_new_order():
         print(order)
     print("\n")
 
-    # Write out to a text file using file content manager
-    with open('Practice\Orders.txt', 'w') as orderlist:
-        orderlist.writelines(f'Order list: {orders}\n')
-    orderlist.close()
+    # Write out to a csv file
 
 def order_list():
     # PRINT orders list with its index values
@@ -261,7 +268,7 @@ while True:
         # If user input is 0, exit app
         if val == 0:
             # save_products_list()
-            # save_courier_list()
+            save_courier_list()
             # save_order_list()
             print('You have logged out of the app.')
         
