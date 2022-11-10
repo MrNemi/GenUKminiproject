@@ -87,15 +87,16 @@ def save_courier_list():
         for new_courier in couriers:
             writer.writerow(new_courier)
 
-# def save_order_list():
-#     # Write out to a csv file
-#     with open('Practice/orders.csv', mode='w') as csv_file:
-#         headers = ['name', 'price']
-#         writer = csv.DictWriter(csv_file, fieldnames = headers)
+def save_order_list():
+    # Write to orders.csv file
+    with open('Practice/orders.csv', mode='w') as csv_file:
+        headers = ['customer_name', 'customer_address', 'customer_phone',
+         'courier', 'order_status', 'items']
+        writer = csv.DictWriter(csv_file, fieldnames = headers)
 
-#         writer.writeheader()
-#         for new_product in products:
-#             writer.writerow(new_product)
+        writer.writeheader()
+        for new_order in orders:
+            writer.writerow(new_order)
 
 def create_product():
     try:
@@ -110,7 +111,7 @@ def create_product():
         print(e)
         print("Enter valid input.")
 
-def update_product():
+def products_list():
     # PRINT product list with its index values
     print("\nProducts List:\n")
     i = 0
@@ -118,6 +119,9 @@ def update_product():
         print(f"Product: {new_product}\nIndex: {i}\n")
         i += 1
 
+def update_product():
+    # PRINT product list with its index values
+    products_list()
     # GET user input for product index value
     prod_index = int(input("Select index for the product you wish to update: "))
     print(products[prod_index])
@@ -145,7 +149,7 @@ def delete_product():
     products.pop(num)
     print(products)
 
-def print_courier_list():
+def couriers_list():
     # printing out the couriers list
     print("\nCouriers available:\n")
     for courier in couriers:
@@ -200,20 +204,26 @@ def delete_courier():
 
 def create_new_order():
     # Get user input to update orders dictionary
-    customer_name = input('Enter customer name: ')
+    customer_name = input('Enter customer name: ').title()
     customer_address = input('Enter customer address: ')
     customer_phone = input('Enter customer phone number: ')
 
     # PRINT couriers list with index value for each courier
-    print_courier_list()
+    couriers_list()
     coury_index = input('Enter courier index: ') # courier index
-    order_status = 'PREPARING'
+    order_status = 'preparing'
+
+    # PRINT product list with index value for each product
+    products_list()
+    items = input('Enter product index you wish to'
+            ' add to order: ') # Product index
 
     new_order = {'customer_name': customer_name,
                 'customer_address': customer_address,
                 'customer_phone': customer_phone,
                 'courier': coury_index,
-                'order_status': order_status}
+                'order_status': order_status,
+                'items': items}
     orders.append(new_order)
 
     # printing all the orders
@@ -284,7 +294,7 @@ while True:
         if val == 0:
             save_products_list()
             save_courier_list()
-            # save_order_list()
+            save_order_list()
             print('You have logged out of the app.')
         
         # Products menu
