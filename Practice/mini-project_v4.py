@@ -72,13 +72,13 @@ def orders_menu():
 
 def save_courier_list():
     # Write out to a csv file using file content manager
-    with open('couriers.csv', mode='w') as csv_file:
-        fieldnames = ['name', 'phone number']
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+    with open('Practice/couriers.csv', mode='w') as csv_file:
+        fields = ['Name', 'Phone']
+        writer = csv.DictWriter(csv_file, fieldnames = fields)
 
         writer.writeheader()
-        for courier in couriers:
-            writer.writerow({courier})
+        for new_courier in couriers:
+            writer.writerow(new_courier)
 
 def create_product():
     try:
