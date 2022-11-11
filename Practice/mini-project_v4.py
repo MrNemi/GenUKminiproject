@@ -1,13 +1,4 @@
-# Program objectives
-# Now that we've learned how to work with two-dimensional data, 
-# let's refactor our app to use dictionaries
-# for both product and courier.
-# Building upon our use of a courier index within our order, 
-# let's create a list of product indexes now for order items.
-# We'll also need to refactor our storage layer to use .csv files 
-# rather than .txt to bring back our persistence functionality.
-# To show that our code works, we will also need to write unit 
-# tests to prove that our app works correctly.
+
 
 # Empty products dictionary
 products = []
@@ -29,53 +20,49 @@ import csv
 
 # Core Functions
 def main_menu():
+    load_products(), load_couriers(),#load_orders()
     print("Welcome to Manny's :)\n"
         '*************Main menu*************\n'
-        'Enter 0 to save data and exit app\n'
-        'Enter 1 to access product menu\n'
-        'Enter 2 to access couriers menu\n'
-        'Enter 3 to access orders menu\n')
+        '0: Save data and exit app\n1: Product menu\n'
+        '2: Couriers menu\n3: Orders menu\n')
 
 def product_menu():
     print('*************Product menu*************')
-    print('Enter 0 to return to main menu\n'
-        'Enter 1 to print products list\n'
-        'Enter 2 to create new product\n'
-        'Enter 3 to update existing product\n'
-        'Enter 4 to delete a product\n')
+    print('[0]: Return to main menu\n[1]: Print products list\n'
+        '[2]: Create new product\n[3]: Update existing product\n'
+        '[4]: Delete a product\n')
 
 def couriers_menu():
     print('*************Couriers menu*************')
-    print('Enter 0 to return to main menu\n'
-        'Enter 1 to print couriers list\n'
-        'Enter 2 to create new courier\n'
-        'Enter 3 to update existing courier\n'
-        'Enter 4 to delete a courier\n')
+    print('(0): Return to main menu\n(1): Print couriers list\n'
+        '(2): Create new courier\n(3): Update existing courier\n'
+        '(4): Delete a courier\n')
 
 def orders_menu():
     print('*************Orders menu*************')
-    print('Enter 0 to return to main menu\n'
-        'Enter 1 to print orders list\n'
-        'Enter 2 to create new order\n'
-        'Enter 3 to update existing order status\n'
-        'Enter 4 to update existing order\n'
-        'Enter 5 to delete an order\n')
+    print('[0]: Return to main menu\n[1]: Print orders list\n'
+        '[2]: Create new order\n[3]: Update existing order status\n'
+        '[4]: Update existing order\n[5]: Delete an order\n')
 
 def load_products():
-    print("\nProducts List:\n")
+    #print("\nProducts List:\n")
     # Read products.csv file and update products dictionary
     with open('Practice/products.csv', 'r') as file:
         csv_file = csv.DictReader(file)
         for row in csv_file:
-            print(dict(row))
+            products.append(dict(row))
+            #print(dict(row))
 
 def load_couriers():
-    print("\nCouriers available:\n")
+    #print("\nCouriers available:\n")
     # Read couriers.csv file and update couriers dictionary
     with open('Practice/couriers.csv', 'r') as file:
         csv_file = csv.DictReader(file)
         for row in csv_file:
-            print(dict(row))
+            couriers.append(dict(row))
+            #print(dict(row))
+
+#def load_orders():
 
 def save_products_list():
     # Write out to a csv file using file content manager
@@ -97,7 +84,7 @@ def save_courier_list():
 
 def save_order_list():
     # Write to orders.csv file
-    with open('Practice/orders.csv', mode='w') as csv_file:
+    with open('Practice/orders.csv', mode='a') as csv_file:
         headers = ['customer_name', 'customer_address', 'customer_phone',
          'courier', 'order_status', 'items']
         writer = csv.DictWriter(csv_file, fieldnames = headers)
@@ -300,10 +287,8 @@ while True:
     if val in (0, 1, 2, 3):
         # If user input is 0, exit app
         if val == 0:
-            save_products_list()
-            save_courier_list()
-            save_order_list()
-            print('You have logged out of the app.')
+            save_products_list(), save_courier_list(), save_order_list()
+            print('All data has been saved.\nLog out successful!!!')
         
         # Products menu
         # If user input is 1:
@@ -325,8 +310,7 @@ while True:
                         
                         #  If user input is 1, print products list
                         elif var == 1:
-                            load_products()
-                            #print(products)
+                            print(products)
 
                         #  If user input is 2, create new product
                         elif var == 2:
@@ -370,8 +354,7 @@ while True:
                     
                     #  If user input is 1, print couriers list
                     elif coury == 1:
-                        load_couriers()
-                        #couriers_list()
+                        couriers_list()
 
                     #  If user input is 2, create new courier dict
                     #  and append to couriers list.
