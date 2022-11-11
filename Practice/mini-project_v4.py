@@ -20,7 +20,6 @@ import csv
 
 # Core Functions
 def main_menu():
-    load_products(), load_couriers(),#load_orders()
     print("Welcome to Manny's :)\n"
         '*************Main menu*************\n'
         '0: Save data and exit app\n1: Product menu\n'
@@ -50,8 +49,10 @@ def load_products():
     with open('Practice/products.csv', 'r') as file:
         csv_file = csv.DictReader(file)
         for row in csv_file:
-            products.append(dict(row))
-            #print(dict(row))
+            new_product = dict(row)
+            products.append(new_product)
+    file.close()
+    print(products)
 
 def load_couriers():
     #print("\nCouriers available:\n")
@@ -61,6 +62,7 @@ def load_couriers():
         for row in csv_file:
             couriers.append(dict(row))
             #print(dict(row))
+    file.close()
 
 #def load_orders():
 
@@ -72,6 +74,7 @@ def save_products_list():
         writer.writeheader()
         for new_product in products:
             writer.writerow(new_product)
+    csv_file.close()
 
 def save_courier_list():
     # Write out to a csv file using file content manager
@@ -81,6 +84,7 @@ def save_courier_list():
         writer.writeheader()
         for new_courier in couriers:
             writer.writerow(new_courier)
+    csv_file.close()
 
 def save_order_list():
     # Write to orders.csv file
@@ -279,6 +283,8 @@ def delete_order():
     # DELETE order at index in order list
     orders.remove(orders[order_index])
 
+load_products(), load_couriers(),#load_orders()
+ 
 while True:
     main_menu()
     # Get user input for main menu option
