@@ -62,14 +62,20 @@ def orders_menu():
         'Enter 5 to delete an order\n')
 
 def load_products():
+    print("\nProducts List:\n")
     # Read products.csv file and update products dictionary
     with open('Practice/products.csv', 'r') as file:
         csv_file = csv.DictReader(file)
         for row in csv_file:
             print(dict(row))
 
-# def load_couriers():
-    # Read couriers.csv file
+def load_couriers():
+    print("\nCouriers available:\n")
+    # Read couriers.csv file and update couriers dictionary
+    with open('Practice/couriers.csv', 'r') as file:
+        csv_file = csv.DictReader(file)
+        for row in csv_file:
+            print(dict(row))
 
 def save_products_list():
     # Write out to a csv file using file content manager
@@ -103,9 +109,9 @@ def save_order_list():
 def create_product():
     try:
         product_name = input('Enter product name: ').title()
-        price = float(input('Enter product price: £'))
+        price = float(input('Enter product price: '))
         new_product = {'name': product_name,
-                'price': price}
+                'price': f'£{price}'}
 
         products.append(new_product)
         print(products)
@@ -167,7 +173,7 @@ def new_couriers():
     couriers.append(new_courier)
 
     # printing all the couriers
-    print_courier_list()
+    couriers_list()
 
 def courier_index_list():
     # PRINT courier name with its index values
@@ -335,7 +341,7 @@ while True:
                         elif var == 4:
                             delete_product()
                         
-                        products_continue = input("Continue? (yes/no): ")
+                        products_continue = input("Remain on the products menu? (yes/no): ")
                         if products_continue == "no":
                             break
                     else:
@@ -364,8 +370,8 @@ while True:
                     
                     #  If user input is 1, print couriers list
                     elif coury == 1:
-                        # load_couriers()
-                        couriers_list()
+                        load_couriers()
+                        #couriers_list()
 
                     #  If user input is 2, create new courier dict
                     #  and append to couriers list.
@@ -380,7 +386,7 @@ while True:
                     elif coury == 4:
                         delete_courier()
                     
-                    couriers_continue = input("Continue? (yes/no): ")
+                    couriers_continue = input("Remain on the courier menu? (yes/no): ")
                     if couriers_continue == "no":
                         break
 
@@ -424,14 +430,14 @@ while True:
                         delete_order()
                         print(f'Orders List:\n{orders}')
                     
-                    orders_continue = input("Continue? (yes/no): ")
+                    orders_continue = input("Still ordering? (yes/no): ")
                     if orders_continue == "no":
                         break
 
                 else:
                     print("Wrong input. Enter a value from 0 to 5")
         
-        menu_continue = input("Would you like to proceed? (yes/no): ")
+        menu_continue = input("Proceed to the main menu? (yes/no): ")
         if menu_continue == "no":
           break
 
