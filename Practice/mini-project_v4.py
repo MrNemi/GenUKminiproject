@@ -61,8 +61,12 @@ def orders_menu():
         'Enter 4 to update existing order\n'
         'Enter 5 to delete an order\n')
 
-# def load_products():
-    # Read products.csv file
+def load_products():
+    # Read products.csv file and update products dictionary
+    with open('Practice/products.csv', 'r') as file:
+        csv_file = csv.DictReader(file)
+        for row in csv_file:
+            print(dict(row))
 
 # def load_couriers():
     # Read couriers.csv file
@@ -72,7 +76,6 @@ def save_products_list():
     with open('Practice/products.csv', mode='w') as csv_file:
         headers = ['name', 'price']
         writer = csv.DictWriter(csv_file, fieldnames = headers)
-
         writer.writeheader()
         for new_product in products:
             writer.writerow(new_product)
@@ -82,7 +85,6 @@ def save_courier_list():
     with open('Practice/couriers.csv', mode='w') as csv_file:
         fields = ['Name', 'Phone']
         writer = csv.DictWriter(csv_file, fieldnames = fields)
-
         writer.writeheader()
         for new_courier in couriers:
             writer.writerow(new_courier)
@@ -317,8 +319,8 @@ while True:
                         
                         #  If user input is 1, print products list
                         elif var == 1:
-                            #load_products()
-                            print(products)
+                            load_products()
+                            #print(products)
 
                         #  If user input is 2, create new product
                         elif var == 2:
@@ -363,7 +365,7 @@ while True:
                     #  If user input is 1, print couriers list
                     elif coury == 1:
                         # load_couriers()
-                        print_courier_list()
+                        couriers_list()
 
                     #  If user input is 2, create new courier dict
                     #  and append to couriers list.
