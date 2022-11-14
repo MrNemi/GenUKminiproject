@@ -44,7 +44,6 @@ def orders_menu():
         '[4]: Update existing order\n[5]: Delete an order\n')
 
 def load_products():
-    #print("\nProducts List:\n")
     # Read products.csv file and update products dictionary
     with open('Practice/products.csv', 'r') as file:
         csv_file = csv.DictReader(file)
@@ -52,16 +51,15 @@ def load_products():
             new_product = dict(row)
             products.append(new_product)
     file.close()
-    print(products)
+    # print(products)
 
 def load_couriers():
-    #print("\nCouriers available:\n")
     # Read couriers.csv file and update couriers dictionary
     with open('Practice/couriers.csv', 'r') as file:
         csv_file = csv.DictReader(file)
         for row in csv_file:
-            couriers.append(dict(row))
-            #print(dict(row))
+            new_courier = dict(row)
+            couriers.append(new_courier)
     file.close()
 
 #def load_orders():
@@ -69,8 +67,8 @@ def load_couriers():
 def save_products_list():
     # Write out to a csv file using file content manager
     with open('Practice/products.csv', mode='w') as csv_file:
-        headers = ['name', 'price']
-        writer = csv.DictWriter(csv_file, fieldnames = headers)
+        headers = ['Name', 'Price']
+        writer = csv.DictWriter(csv_file, fieldnames = headers, delimiter = '\t')
         writer.writeheader()
         for new_product in products:
             writer.writerow(new_product)
@@ -91,7 +89,7 @@ def save_order_list():
     with open('Practice/orders.csv', mode='a') as csv_file:
         headers = ['customer_name', 'customer_address', 'customer_phone',
          'courier', 'order_status', 'items']
-        writer = csv.DictWriter(csv_file, fieldnames = headers)
+        writer = csv.DictWriter(csv_file, fieldnames = headers, delimiter = '\t')
 
         writer.writeheader()
         for new_order in orders:
@@ -101,8 +99,8 @@ def create_product():
     try:
         product_name = input('Enter product name: ').title()
         price = float(input('Enter product price: '))
-        new_product = {'name': product_name,
-                'price': f'£{price}'}
+        new_product = {'Name': product_name,
+                'Price': '£' + price}
 
         products.append(new_product)
         print(products)
