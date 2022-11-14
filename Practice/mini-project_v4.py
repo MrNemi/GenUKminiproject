@@ -107,7 +107,7 @@ def create_product():
         product_name = input('Enter product name: ').title()
         price = float(input('Enter product price: '))
         new_product = {'name': product_name,
-                'price': '£' + price}
+                'price': f'£{price}'}
 
         products.append(new_product)
         print(products)
