@@ -92,7 +92,7 @@ def save_courier_list():
 
 def save_order_list():
     # Write to orders.csv file
-    with open('Practice/orders.csv', mode='a') as csv_file:
+    with open('Practice/orders.csv', mode='w') as csv_file:
         headers = ['customer_name', 'customer_address', 'customer_phone',
          'courier', 'order_status', 'items']
         writer = csv.DictWriter(csv_file, fieldnames = headers)
