@@ -1,1 +1,3 @@
-
+customer_name,customer_address,customer_phone,courier,order_status,items
+customer_name,customer_address,customer_phone,courier,order_status,items
+John,"3 Constantine Drive, LS6 66J",008,0,preparing,1

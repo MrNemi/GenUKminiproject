@@ -214,12 +214,14 @@ def create_new_order():
 
     # PRINT product list with index value for each product
     products_list()
-    items = int(input('Enter product index you wish to'
+    mult = int(input('How many products do you want to order? '))
+    for i in range(0, mult):
+        items = int(input('Enter product index you wish to'
             ' add to order: ')) # Product index
     item_list = str(items)
 
     # PRINT couriers list with index value for each courier
-    couriers_list()
+    courier_index_list()
     coury_index = input('Enter courier index: ') # courier index
     order_status = 'preparing'
 
