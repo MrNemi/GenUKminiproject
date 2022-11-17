@@ -1,4 +1,6 @@
 customer_name,customer_address,customer_phone,courier,order_status,items
 
-John,"3 Constantine Drive, LS6 66J",008,0,preparing,1
+John,"3 Constantine Drive, LS6 66J",008,0,Awaiting Pickup,1
+
+Will,sdsd,998,0,preparing,2
 
