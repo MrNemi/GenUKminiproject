@@ -214,13 +214,23 @@ def create_new_order():
 
     # PRINT product list with index value for each product
     products_list()
-    mult = int(input('How many products do you want to order? '))
-    # Taking multiple inputs at a time separated by comma
-    for i in range(mult):
-        items = input('Enter product index you wish to'
-            ' add to order: ').split() # Product index
-    str(items)
+
+    # Taking multiple user inputs separated by comma
+    item = input('Enter product index you wish to'
+    ' add to order: ')
+    items = str(item)
     print(items)
+
+    # val = 0
+    # items = {}
+    # mult = int(input('How many products do you want to order? '))
+    # for i in range(mult):
+    #     item = int(input('Enter product index you wish to'
+    #         ' add to order: ')) # Product index
+    #     val += 1
+    #     items.update({'item'+str(val): item})
+    # for values in items.values():
+    #     print(values)
 
     # PRINT couriers list with index value for each courier
     courier_index_list()
