@@ -1,6 +1,3 @@
-# we are no longer reading products and couriers from files
-# we are now reading product and courier data from database tables
-
 # Import core functions for cafe ordering app
 from core_functions import *
 
@@ -15,8 +12,7 @@ while True:
             # save_order_list()
             print('All data has been saved.\nLog out successful!!!')
         
-        # Products menu
-        # If user input is 1:
+        # If user input is 1: Products menu
         elif val == 1:
             # print product menu options
             product_menu()
@@ -59,8 +55,7 @@ while True:
                     print(e)
                     print("Enter valid input.")
 
-        # Couriers menu
-        # If user input is 2:
+        # If user input is 2: Couriers menu
         elif val == 2:
             # print courier menu options
             couriers_menu()
@@ -104,8 +99,7 @@ while True:
                     print(e)
                     print("Enter valid input.")
 
-        # Orders menu
-        # If user input is 3:
+        # If user input is 3: Orders menu
         elif val == 3:
             # print orders menu
             orders_menu()
@@ -157,4 +151,4 @@ while True:
           break
 
     else:
-        print("Invalid input. Enter either a 0 or 1")
+        print("Invalid input. Enter either 0, 1, 2, or 3")

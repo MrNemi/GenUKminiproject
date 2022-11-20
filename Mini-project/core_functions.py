@@ -49,7 +49,7 @@ def orders_menu():
 
 def load_orders():
     # Read orders.csv file and update orders dictionary
-    with open('Practice/orders.csv', 'r') as file:
+    with open('Mini-project/orders.csv', 'r') as file:
         csv_file = csv.DictReader(file)
         for row in csv_file:
             new_order = dict(row)
@@ -264,4 +264,5 @@ def delete_order():
     # DELETE order at index in order list
     orders.remove(orders[order_index])
 
-# load_products(), load_couriers(), load_orders()
+load_orders()
+# load_products(), load_couriers()
