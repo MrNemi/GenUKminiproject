@@ -267,7 +267,7 @@ def delete_order():
     # DELETE order at index in order list
     orders.remove(orders[order_index])
 
-load_products(), load_couriers(), load_orders()
+# load_products(), load_couriers(), load_orders()
  
 while True:
     main_menu()
@@ -277,7 +277,7 @@ while True:
     if val in (0, 1, 2, 3):
         # If user input is 0, exit app
         if val == 0:
-            save_products_list(), save_courier_list(), save_order_list()
+            # save_order_list()
             print('All data has been saved.\nLog out successful!!!')
         
         # Products menu
@@ -295,7 +295,6 @@ while True:
                         #  If user input is 0:
                         if var == 0:
                         #  Return to main menu
-                            main_menu()
                             break
                         
                         #  If user input is 1, print products list
@@ -340,7 +339,6 @@ while True:
                         #  If user input is 0:
                         if coury == 0:
                         #  Return to main menu
-                            main_menu()
                             break
                         
                         #  If user input is 1, print couriers list
@@ -386,7 +384,7 @@ while True:
                         #  If user input is 0:
                         if num == 0:
                         #  Return to main menu
-                            main_menu()
+                            break
                         
                         #  If user input is 1, print orders dictionary
                         elif num == 1:
