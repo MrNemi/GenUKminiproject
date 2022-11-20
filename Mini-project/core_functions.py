@@ -1,5 +1,3 @@
-
-
 # Empty products dictionary
 products = []
 new_product = {}
@@ -43,26 +41,14 @@ def orders_menu():
         '[2]: Create new order\n[3]: Update existing order status\n'
         '[4]: Update existing order\n[5]: Delete an order\n')
 
-def load_products():
-    # Read products.csv file and update products dictionary
-    with open('Practice/products.csv', 'r') as file:
-        csv_file = csv.DictReader(file)
-        for row in csv_file:
-            new_product = dict(row)
-            products.append(new_product)
-    file.close()
+# def load_products():
+    # Read products from products table
 
-def load_couriers():
-    # Read couriers.csv file and update couriers dictionary
-    with open('Practice/couriers.csv', 'r') as file:
-        csv_file = csv.DictReader(file)
-        for row in csv_file:
-            new_courier = dict(row)
-            couriers.append(new_courier)
-    file.close()
+# def load_couriers():
+    # Read couriers from courier table
 
 def load_orders():
-        # Read orders.csv file and update orders dictionary
+    # Read orders.csv file and update orders dictionary
     with open('Practice/orders.csv', 'r') as file:
         csv_file = csv.DictReader(file)
         for row in csv_file:
@@ -70,25 +56,11 @@ def load_orders():
             orders.append(new_order)
     file.close()
 
-def save_products_list():
-    # Write out to a csv file using file content manager
-    with open('Practice/products.csv', mode='w') as csv_file:
-        headers = ['name', 'price']
-        writer = csv.DictWriter(csv_file, fieldnames = headers)
-        writer.writeheader()
-        for new_product in products:
-            writer.writerow(new_product)
-    csv_file.close()
+# def save_products_list():
+    # Write out to products table
 
-def save_courier_list():
-    # Write out to a csv file using file content manager
-    with open('Practice/couriers.csv', mode='w') as csv_file:
-        headers = ['name', 'phone']
-        writer = csv.DictWriter(csv_file, fieldnames = headers)
-        writer.writeheader()
-        for new_courier in couriers:
-            writer.writerow(new_courier)
-    csv_file.close()
+# def save_courier_list():
+    # Write out to courier table
 
 def save_order_list():
     # Write to orders.csv file
@@ -292,161 +264,4 @@ def delete_order():
     # DELETE order at index in order list
     orders.remove(orders[order_index])
 
-load_products(), load_couriers(), load_orders()
- 
-while True:
-    main_menu()
-    # Get user input for main menu option
-    val = int(input('Enter a number to access main menu: '))
-    
-    if val in (0, 1, 2, 3):
-        # If user input is 0, exit app
-        if val == 0:
-            save_products_list(), save_courier_list(), save_order_list()
-            print('All data has been saved.\nLog out successful!!!')
-        
-        # Products menu
-        # If user input is 1:
-        elif val == 1:
-            # print product menu options
-            product_menu()
-            
-            while True:
-                try:
-                    #  Get user input for product menu option
-                    var = int(input('Enter a number to access product menu: '))
-
-                    if var in (0, 1, 2, 3, 4):
-                        #  If user input is 0:
-                        if var == 0:
-                        #  Return to main menu
-                            main_menu()
-                            break
-                        
-                        #  If user input is 1, print products list
-                        elif var == 1:
-                            print(products)
-
-                        #  If user input is 2, create new product
-                        elif var == 2:
-                            create_product()
-
-                        # If user input is 3, update existing product
-                        elif var == 3:
-                        # using list comprehension to print product names and index value
-                            update_product()
-
-                        # If user input is 4, delete a product
-                        elif var == 4:
-                            delete_product()
-                        
-                        products_continue = input("Remain on the products menu? (yes/no): ")
-                        if products_continue == "no":
-                            break
-                    else:
-                        print("Wrong input. Enter a value from 0 to 4")
-
-                except Exception as e:
-                    print(e)
-                    print("Enter valid input.")
-
-        # Couriers menu
-        # If user input is 2:
-        elif val == 2:
-            # print courier menu options
-            couriers_menu()
-
-            while True:
-                try:
-                    #  Get user input for couriers menu option
-                    coury = int(input('Enter a number to access couriers menu: '))
-
-                    if coury in (0, 1, 2, 3, 4):
-                        #  If user input is 0:
-                        if coury == 0:
-                        #  Return to main menu
-                            main_menu()
-                            break
-                        
-                        #  If user input is 1, print couriers list
-                        elif coury == 1:
-                            couriers_list()
-
-                        #  If user input is 2, create new courier dict
-                        #  and append to couriers list.
-                        elif coury == 2:
-                            new_couriers()
-
-                        #  If user input is 3, update existing courier
-                        elif coury == 3:
-                            update_courier()
-                        
-                        #  If user input is 4, delete courier
-                        elif coury == 4:
-                            delete_courier()
-                        
-                        couriers_continue = input("Remain on the courier menu? (yes/no): ")
-                        if couriers_continue == "no":
-                            break
-
-                    else:
-                        print("Wrong input. Enter a value from 0 to 5")
-
-                except Exception as e:
-                    print(e)
-                    print("Enter valid input.")
-
-        # Orders menu
-        # If user input is 3:
-        elif val == 3:
-            # print orders menu
-            orders_menu()
-
-            while True:
-                try:
-                    #  Get user input for orders menu option
-                    num = int(input('Enter a number to access orders menu: '))
-
-                    if num in (0, 1, 2, 3, 4, 5):
-                        #  If user input is 0:
-                        if num == 0:
-                        #  Return to main menu
-                            main_menu()
-                        
-                        #  If user input is 1, print orders dictionary
-                        elif num == 1:
-                            print(f'Orders List:\n{orders}')
-
-                        #  If user input is 2, create new order and append to orders list.
-                        elif num == 2:
-                            create_new_order()
-
-                        #  If user input is 3, update existing order status
-                        elif num == 3:
-                            update_order_status()
-                        
-                        #  If user input is 4, update order
-                        elif num == 4:
-                            update_order()
-                        
-                        #  If user input is 5, delete order
-                        elif num == 5:
-                            delete_order()
-                            print(f'Orders List:\n{orders}')
-                        
-                        orders_continue = input("Still ordering? (yes/no): ")
-                        if orders_continue == "no":
-                            break
-
-                    else:
-                        print("Wrong input. Enter a value from 0 to 5")
-                except Exception as e:
-                    print(e)
-                    print("Enter valid input.")
-        
-        menu_continue = input("Proceed to the main menu? (yes/no): ")
-        if menu_continue == "no":
-          break
-
-    else:
-        print("Invalid input. Enter either a 0 or 1")
+# load_products(), load_couriers(), load_orders()
