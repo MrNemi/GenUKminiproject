@@ -10,4 +10,4 @@ A 6-week mini-project using Python to develop a simple app that lets the user ma
 # ACTION PLAN FOR FUTURE IMPLEMENTATION
 1. Loading and persisting orders to a database.
 
-What did you most enjoy implementing? (BANTS)
+# What did you most enjoy implementing? (BANTS)
