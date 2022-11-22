@@ -1,13 +1,15 @@
 # GenUKminiproject - cafe ordering app
 A 6-week mini-project using Python to develop a simple app that lets the user make and edit orders.
 
-# Project Background / Client requirements
+# Project Background
 
-# How did you meet the client brief? (UNDERSTANDING CLIENT SPECIFICATION/REQUIREMENTS)
+# Client requirements
 
-# How did you guarantee the client requirements? (TESTING)
+# How did your design go about meeting the project's requirements?
 
-# ACTION PLAN FOR FUTURE IMPLEMENTATION
+# How did you guarantee the project's requirements?
+
+# If you had more time, what is one thing you would improve upon?
 1. Loading and persisting orders to a database.
 
-# What did you most enjoy implementing? (BANTS)
+# What did you most enjoy implementing?
