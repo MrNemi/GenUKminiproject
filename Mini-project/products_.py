@@ -13,7 +13,7 @@ def create_product():
         product_name = input('Enter product name: ').title()
         price = float(input('Enter product price: '))
         new_product = {'name': product_name,
-                'price': f'£{price}'}
+                'price': price}
 
         products.append(new_product)
         print(products)
@@ -21,7 +21,14 @@ def create_product():
         print(e)
         print("Enter valid input.")
 
-def products_list():
+def view_products():
+    # printing out the products
+    print("\nProducts available:\n")
+    for product in products:
+        item = list(product.values())
+        print(item,'\n')
+
+def product_index():
     # PRINT product list with its index values
     print("\nProducts List:\n")
     i = 0
@@ -31,7 +38,7 @@ def products_list():
 
 def update_product():
     # PRINT product list with its index values
-    products_list()
+    product_index()
     # GET user input for product index value
     prod_index = int(input("Select index for the product you wish to update: "))
     print(products[prod_index])
@@ -66,14 +73,14 @@ def product_loop():
         try:
             #  Get user input for product menu option
             var = int(input('Enter a number to access product menu: '))
-            for var in range(0, 5):
+            if var in range(0, 5):
                 #  If user input is 0: Return to main menu
                 if var == 0:
                     break
                 
                 #  If user input is 1, print products list
                 elif var == 1:
-                    print(products)
+                    view_products()
 
                 #  If user input is 2, create new product
                 elif var == 2:

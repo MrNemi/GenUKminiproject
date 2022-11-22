@@ -5,7 +5,7 @@ new_order = {}
 # CREATE order status list
 order_status_list = ["Preparing", "Awaiting Pickup", "Out for Delivery", "Delivered"]
 
-from products_ import products_list
+from products_ import product_index
 from couriers_ import courier_index_list
 
 def orders_menu():
@@ -21,7 +21,7 @@ def create_new_order():
     customer_phone = input('Enter customer phone number: ')
 
     # PRINT product list with index value for each product
-    products_list()
+    product_index()
 
     # Taking multiple user inputs separated by comma
     item = input('Enter product index you wish to'
@@ -32,7 +32,7 @@ def create_new_order():
     # PRINT couriers list with index value for each courier
     courier_index_list()
     coury_index = input('Enter courier index: ') # courier index
-    order_status = 'preparing'
+    order_status = order_status_list[0]
 
     new_order = {'customer_name': customer_name,
                 'customer_address': customer_address,
@@ -43,10 +43,7 @@ def create_new_order():
     orders.append(new_order)
 
     # printing all the orders
-    print("\nOrders List:\n")
-    for order in orders:
-        print(order)
-    print("\n")
+    print("\nOrders List:\n", orders)
 
 def orders_list():
     # PRINT orders list with its index values
@@ -136,7 +133,7 @@ def orders_loop():
         try:
             #  Get user input for orders menu option
             num = int(input('Enter a number to access orders menu: '))
-            for num in range(0, 6):
+            if num in range(0, 6):
                 #  If user input is 0:
                 if num == 0:
                 #  Return to main menu

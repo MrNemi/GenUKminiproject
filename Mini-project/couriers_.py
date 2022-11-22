@@ -12,8 +12,8 @@ def couriers_list():
     # printing out the couriers list
     print("\nCouriers available:\n")
     for courier in couriers:
-        print(courier)
-    print("\n")
+        person = list(courier.values())
+        print(person,'\n')
 
 def new_couriers():
     # Get user input to update couriers list
@@ -69,7 +69,7 @@ def couriers_loop():
             #  Get user input for couriers menu option
             coury = int(input('Enter a number to access couriers menu: '))
 
-            for coury in range(0, 5):
+            if coury in range(0, 5):
                 #  If user input is 0:
                 if coury == 0:
                 #  Return to main menu
