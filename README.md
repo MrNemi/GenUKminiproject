@@ -27,7 +27,7 @@ As a business, the client wants the following app capabilities:
 • Including error handling in every section of code where user input is required.
 
 # If you had more time, what is one thing you would improve upon?
-• Loading and persisting data to a database.
+• Loading and persisting data to a database using SQL.
 
 # What did you most enjoy implementing?
 • Source control using Git
