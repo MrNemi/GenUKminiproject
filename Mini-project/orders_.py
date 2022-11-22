@@ -48,7 +48,7 @@ def create_new_order():
         print(order)
     print("\n")
 
-def order_list():
+def orders_list():
     # PRINT orders list with its index values
     print("\nOrders List:\n")
     i = 0
@@ -56,8 +56,25 @@ def order_list():
         print(f"Order: {order}\nIndex: {i}\n")
         i += 1
 
+def orders_view():
+    print("How would you like to view your orders?")
+    format = input("Enter 'c' for list by couriers or 's'"
+                " for list by order status: ").title()
+
+    if format == 'C':
+        # sort orders by courier
+        sort_orders = lambda orders: orders.sort()
+        # print out the sorted orders
+        print("Orders list sorted by couriers:\n", sort_orders)
+
+    elif format == 'S':
+        # sort orders by status
+        orders.sort(key=lambda order: order[4])
+        # print out the sorted orders
+        print(orders)
+
 def update_order_status():
-    order_list()
+    orders_list()
     # GET user input for order index value
     order_index = int(input("Select index for the order you wish to update: "))
     print(orders[order_index])
@@ -75,7 +92,7 @@ def update_order_status():
     print(orders[order_index])
 
 def update_order():
-    order_list()
+    orders_list()
     # GET user input for order index value
     order_index = int(input("Select index for the order you wish to update: "))
     print(orders[order_index])
@@ -94,7 +111,7 @@ def update_order():
             order[key] = update
 
 def delete_order():
-    order_list()
+    orders_list()
     # GET user input for order index value
     order_index = int(input("Select index for the order you wish to delete: "))
     # DELETE order at index in order list
@@ -115,7 +132,8 @@ def orders_loop():
                 
                 #  If user input is 1, print orders dictionary
                 elif num == 1:
-                    print(f'Orders List:\n{orders}')
+                    orders_view()
+                    # print(f'Orders List:\n{orders}')
 
                 #  If user input is 2, create new order and append to orders list.
                 elif num == 2:
@@ -139,6 +157,7 @@ def orders_loop():
                     break
             else:
                 print("Wrong input. Enter a value from 0 to 5")
+
         except Exception as e:
             print(e)
             print("Enter valid input.")
