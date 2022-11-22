@@ -66,10 +66,9 @@ def product_loop():
         try:
             #  Get user input for product menu option
             var = int(input('Enter a number to access product menu: '))
-            if var in (0, 1, 2, 3, 4):
+            for var in range(0, 5):
                 #  If user input is 0: Return to main menu
                 if var == 0:
-                    # main_menu()
                     break
                 
                 #  If user input is 1, print products list

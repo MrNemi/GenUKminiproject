@@ -1,4 +1,4 @@
-# Import modules and key functions for cafe ordering app
+# Import key modules for cafe ordering app
 from products_ import *
 from couriers_ import *
 from orders_ import *
@@ -25,7 +25,7 @@ while True:
             # If user input is 0, exit app
             if val == 0:
                 save_products_list(), save_courier_list(), save_order_list()
-                print('All data has been saved.\nLog out successful!!!')
+                print('All data has been saved.\nExiting the app!!!')
             
             # If user input is 1: Enter products menu
             elif val == 1:

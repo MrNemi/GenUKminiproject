@@ -62,20 +62,27 @@ def orders_view():
         format = input("Enter 'c' for list by couriers or 's'"
                     " for list by order status: ").title()
         if format == 'C':
-            # using sorted and lambda to print list of 
-            # orders sorted by courier
+            # using sorted and lambda to print list of orders sorted by courier
             sort_orders = sorted(orders, key=lambda i: i['courier'])
             # print out the sorted orders
-            print("Orders list sorted by couriers:\n", sort_orders)
+            print("Orders list sorted by couriers:\n")
+            # Iterating over all the values of the orders dictionary
+            for item in sort_orders:
+                items = list(item.values())
+                print(items,'\n')
 
         elif format == 'S':
             # using sorted and lambda to print list of 
             # orders sorted by order status
             sort_orders = sorted(orders, key=lambda i: i['order_status'])
             # print out the sorted orders
-            print("Orders list sorted by status:\n", sort_orders)
+            print("Orders list sorted by status:\n")
+            # Iterating over all the values of the orders dictionary
+            for item in sort_orders:
+                items = list(item.values())
+                print(items,'\n')
 
-    except ValueError as e:
+    except Exception as e:
         print(e)
 
 def update_order_status():
@@ -129,7 +136,7 @@ def orders_loop():
         try:
             #  Get user input for orders menu option
             num = int(input('Enter a number to access orders menu: '))
-            if num in (0, 1, 2, 3, 4, 5):
+            for num in range(0, 6):
                 #  If user input is 0:
                 if num == 0:
                 #  Return to main menu

@@ -69,11 +69,10 @@ def couriers_loop():
             #  Get user input for couriers menu option
             coury = int(input('Enter a number to access couriers menu: '))
 
-            if coury in (0, 1, 2, 3, 4):
+            for coury in range(0, 5):
                 #  If user input is 0:
                 if coury == 0:
                 #  Return to main menu
-                    # main_menu()
                     break
                 
                 #  If user input is 1, print couriers list
