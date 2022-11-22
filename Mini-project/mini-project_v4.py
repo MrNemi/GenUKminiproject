@@ -21,28 +21,29 @@ while True:
         # Get user input for main menu option
         val = int(input('Enter a number to access main menu: '))
         
-        if val in (0, 1, 2, 3):
-            # If user input is 0, exit app
-            if val == 0:
-                save_products_list(), save_courier_list(), save_order_list()
-                print('All data has been saved.\nExiting the app!!!')
-            
-            # If user input is 1: Enter products menu
-            elif val == 1:
-                product_loop()
+        # If user input is 0, exit app
+        if val == 0:
+            save_products_list(), save_courier_list(), save_order_list()
+            print('All data has been saved.\nExiting the app!!!')
+        
+        # If user input is 1: Enter products menu
+        elif val == 1:
+            product_loop()
 
-            # If user input is 2: Enter couriers menu
-            elif val == 2:
-                couriers_loop()
+        # If user input is 2: Enter couriers menu
+        elif val == 2:
+            couriers_loop()
 
-            # If user input is 3: Enter orders menu
-            elif val == 3:
-                orders_loop()
-            
-            menu_continue = input("Proceed to the main menu? (yes/no): ")
-            if menu_continue == "no":
-                break
+        # If user input is 3: Enter orders menu
+        elif val == 3:
+            orders_loop()
+        
         else:
-            print("Invalid input. Enter either a 0 or 1")
+            print("Invalid input. Enter either 0, 1, 2, or 3")
+
+        menu_continue = input("Proceed to the main menu? (yes/no): ")
+        if menu_continue == "no":
+            break
+
     except ValueError as e:
         print(e)

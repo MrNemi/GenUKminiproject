@@ -74,33 +74,34 @@ def product_loop():
         try:
             #  Get user input for product menu option
             var = int(input('Enter a number to access product menu: '))
-            if var in range(0, 5):
-                #  If user input is 0: Return to main menu
-                if var == 0:
-                    break
-                
-                #  If user input is 1, print products list
-                elif var == 1:
-                    view_products()
+            
+            #  If user input is 0: Return to main menu
+            if var == 0:
+                break
+            
+            #  If user input is 1, print products list
+            elif var == 1:
+                view_products()
 
-                #  If user input is 2, create new product
-                elif var == 2:
-                    create_product()
+            #  If user input is 2, create new product
+            elif var == 2:
+                create_product()
 
-                # If user input is 3, update existing product
-                elif var == 3:
-                # using list comprehension to print product names and index value
-                    update_product()
+            # If user input is 3, update existing product
+            elif var == 3:
+            # using list comprehension to print product names and index value
+                update_product()
 
-                # If user input is 4, delete a product
-                elif var == 4:
-                    delete_product()
-                
-                products_continue = input("Remain on the products menu? (yes/no): ")
-                if products_continue == "no":
-                    break
+            # If user input is 4, delete a product
+            elif var == 4:
+                delete_product()
+            
             else:
                 print("Wrong input. Enter a value from 0 to 4")
+            
+            products_continue = input("Remain on the products menu? (yes/no): ")
+            if products_continue == "no":
+                break
 
         except Exception as e:
             print(e)

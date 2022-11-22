@@ -139,38 +139,38 @@ def orders_loop():
         try:
             #  Get user input for orders menu option
             num = int(input('Enter a number to access orders menu: '))
-            if num in range(0, 6):
-                #  If user input is 0:
-                if num == 0:
-                #  Return to main menu
-                    break
-                
-                #  If user input is 1, print orders dictionary
-                elif num == 1:
-                    orders_view()
-                    # print(f'Orders List:\n{orders}')
 
-                #  If user input is 2, create new order and append to orders list.
-                elif num == 2:
-                    create_new_order()
+            #  If user input is 0:
+            if num == 0:
+            #  Return to main menu
+                break
+            
+            #  If user input is 1, print orders dictionary
+            elif num == 1:
+                orders_view()
 
-                #  If user input is 3, update existing order status
-                elif num == 3:
-                    update_order_status()
-                
-                #  If user input is 4, update order
-                elif num == 4:
-                    update_order()
-                
-                #  If user input is 5, delete order
-                elif num == 5:
-                    delete_order()
-                
-                orders_continue = input("Still ordering? (yes/no): ")
-                if orders_continue == "no":
-                    break
+            #  If user input is 2, create new order and append to orders list.
+            elif num == 2:
+                create_new_order()
+
+            #  If user input is 3, update existing order status
+            elif num == 3:
+                update_order_status()
+            
+            #  If user input is 4, update order
+            elif num == 4:
+                update_order()
+            
+            #  If user input is 5, delete order
+            elif num == 5:
+                delete_order()
+            
             else:
                 print("Wrong input. Enter a value from 0 to 5")
+            
+            orders_continue = input("Still ordering? (yes/no): ")
+            if orders_continue == "no":
+                break
 
         except Exception as e:
             print(e)

@@ -72,35 +72,34 @@ def couriers_loop():
             #  Get user input for couriers menu option
             coury = int(input('Enter a number to access couriers menu: '))
 
-            if coury in range(0, 5):
-                #  If user input is 0:
-                if coury == 0:
-                #  Return to main menu
-                    break
-                
-                #  If user input is 1, print couriers list
-                elif coury == 1:
-                    couriers_list()
+            #  If user input is 0:
+            if coury == 0:
+            #  Return to main menu
+                break
+            
+            #  If user input is 1, print couriers list
+            elif coury == 1:
+                couriers_list()
 
-                #  If user input is 2, create new courier dict
-                #  and append to couriers list.
-                elif coury == 2:
-                    new_couriers()
+            #  If user input is 2, create new courier dict
+            #  and append to couriers list.
+            elif coury == 2:
+                new_couriers()
 
-                #  If user input is 3, update existing courier
-                elif coury == 3:
-                    update_courier()
-                
-                #  If user input is 4, delete courier
-                elif coury == 4:
-                    delete_courier()
-                
-                couriers_continue = input("Remain on the courier menu? (yes/no): ")
-                if couriers_continue == "no":
-                    break
-
+            #  If user input is 3, update existing courier
+            elif coury == 3:
+                update_courier()
+            
+            #  If user input is 4, delete courier
+            elif coury == 4:
+                delete_courier()
+            
             else:
                 print("Wrong input. Enter a value from 0 to 5")
+            
+            couriers_continue = input("Remain on the courier menu? (yes/no): ")
+            if couriers_continue == "no":
+                break
 
         except Exception as e:
             print(e)
