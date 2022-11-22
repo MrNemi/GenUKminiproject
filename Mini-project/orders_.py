@@ -58,20 +58,25 @@ def orders_list():
 
 def orders_view():
     print("How would you like to view your orders?")
-    format = input("Enter 'c' for list by couriers or 's'"
-                " for list by order status: ").title()
+    try:
+        format = input("Enter 'c' for list by couriers or 's'"
+                    " for list by order status: ").title()
+        if format == 'C':
+            # using sorted and lambda to print list of 
+            # orders sorted by courier
+            sort_orders = sorted(orders, key=lambda i: i['courier'])
+            # print out the sorted orders
+            print("Orders list sorted by couriers:\n", sort_orders)
 
-    if format == 'C':
-        # sort orders by courier
-        sort_orders = lambda orders: orders.sort()
-        # print out the sorted orders
-        print("Orders list sorted by couriers:\n", sort_orders)
+        elif format == 'S':
+            # using sorted and lambda to print list of 
+            # orders sorted by order status
+            sort_orders = sorted(orders, key=lambda i: i['order_status'])
+            # print out the sorted orders
+            print("Orders list sorted by status:\n", sort_orders)
 
-    elif format == 'S':
-        # sort orders by status
-        orders.sort(key=lambda order: order[4])
-        # print out the sorted orders
-        print(orders)
+    except ValueError as e:
+        print(e)
 
 def update_order_status():
     orders_list()
