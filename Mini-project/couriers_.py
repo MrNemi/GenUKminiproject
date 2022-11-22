@@ -11,9 +11,10 @@ def couriers_menu():
 def couriers_list():
     # printing out the couriers list
     print("\nCouriers available:\n")
+    i = 1
     for courier in couriers:
-        person = list(courier.values())
-        print(person,'\n')
+        print(f"Courier {i}: {courier},\n")
+        i += 1
 
 def new_couriers():
     # Get user input to update couriers list
@@ -30,9 +31,11 @@ def courier_index_list():
     # PRINT courier name with its index values
     print("\nCouriers List:\n")
     i = 0
+    j = 1
     for courier in couriers:
-        print(f"Courier: {courier}, Index: {i}\n")
+        print(f"Courier {j}: {courier}, Index: {i}\n")
         i += 1
+        j += 1
 
 def update_courier():
     courier_index_list()
@@ -59,7 +62,7 @@ def delete_courier():
     unit = int(input('Enter index value for courier to be deleted: '))
     # delete courier dict at index in products list
     couriers.pop(unit)
-    print(couriers)
+    couriers_list()
 
 def couriers_loop():
     # print courier menu options

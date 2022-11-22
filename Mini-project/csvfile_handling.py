@@ -36,7 +36,7 @@ def save_products_list():
     # Write out to a csv file using file content manager
     with open('Mini-project/products.csv', mode='w') as csv_file:
         headers = ['name', 'price']
-        writer = csv.DictWriter(csv_file, fieldnames = headers, delimiter=" ")
+        writer = csv.DictWriter(csv_file, fieldnames = headers)
         writer.writeheader()
         for new_product in products:
             writer.writerow(new_product)
@@ -45,7 +45,7 @@ def save_courier_list():
     # Write out to a csv file using file content manager
     with open('Mini-project/couriers.csv', mode='w') as csv_file:
         headers = ['name', 'phone']
-        writer = csv.DictWriter(csv_file, fieldnames = headers, delimiter=" ")
+        writer = csv.DictWriter(csv_file, fieldnames = headers)
         writer.writeheader()
         for new_courier in couriers:
             writer.writerow(new_courier)
@@ -55,7 +55,7 @@ def save_order_list():
     with open('Mini-project/orders.csv', mode='w') as csv_file:
         headers = ['customer_name', 'customer_address', 'customer_phone',
          'courier', 'order_status', 'items']
-        writer = csv.DictWriter(csv_file, fieldnames = headers, delimiter=" ")
+        writer = csv.DictWriter(csv_file, fieldnames = headers)
 
         writer.writeheader()
         for new_order in orders:

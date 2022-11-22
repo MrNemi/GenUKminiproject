@@ -13,10 +13,10 @@ def create_product():
         product_name = input('Enter product name: ').title()
         price = float(input('Enter product price: '))
         new_product = {'name': product_name,
-                'price': price}
+                'price': f'£{price}'}
 
         products.append(new_product)
-        print(products)
+        view_products()
     except Exception as e:
         print(e)
         print("Enter valid input.")
@@ -24,16 +24,17 @@ def create_product():
 def view_products():
     # printing out the products
     print("\nProducts available:\n")
+    i = 1
     for product in products:
-        item = list(product.values())
-        print(item,'\n')
+        print(f"Product {i}: {product},\n")
+        i += 1
 
 def product_index():
     # PRINT product list with its index values
     print("\nProducts List:\n")
     i = 0
     for new_product in products:
-        print(f"Product: {new_product}\nIndex: {i}\n")
+        print(f"Product: {new_product}, Index: {i}\n")
         i += 1
 
 def update_product():
@@ -64,7 +65,7 @@ def delete_product():
     num = int(input('Enter index value for product to be deleted: '))
     # delete product dictionary at index in products list
     products.pop(num)
-    print(products)
+    view_products()
 
 def product_loop():
     # print product menu options
