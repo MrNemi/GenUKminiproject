@@ -49,9 +49,11 @@ def orders_list():
     # PRINT orders list with its index values
     print("\nOrders List:\n")
     i = 0
+    j = 1
     for order in orders:
-        print(f"Order: {order}\nIndex: {i}\n")
+        print(f"Order {j}: {order}\nIndex: {i}\n")
         i += 1
+        j += 1
 
 def orders_view():
     print("How would you like to view your orders?")
@@ -64,9 +66,11 @@ def orders_view():
             # print out the sorted orders
             print("Orders list sorted by couriers:\n")
             # Iterating over all the values of the orders dictionary
+            i = 1
             for item in sort_orders:
                 items = list(item.values())
-                print(items,'\n')
+                print(f"Order {i}:\n {items},\n")
+                i += 1
 
         elif format == 'S':
             # using sorted and lambda to print list of 
@@ -75,9 +79,11 @@ def orders_view():
             # print out the sorted orders
             print("Orders list sorted by status:\n")
             # Iterating over all the values of the orders dictionary
+            i = 1
             for item in sort_orders:
                 items = list(item.values())
-                print(items,'\n')
+                print(f"Order {i}:\n {items},\n")
+                i += 1
 
     except Exception as e:
         print(e)
@@ -159,7 +165,6 @@ def orders_loop():
                 #  If user input is 5, delete order
                 elif num == 5:
                     delete_order()
-                    print(f'Orders List:\n{orders}')
                 
                 orders_continue = input("Still ordering? (yes/no): ")
                 if orders_continue == "no":
