@@ -5,8 +5,8 @@ new_order = {}
 # CREATE order status list
 order_status_list = ["Preparing", "Awaiting Pickup", "Out for Delivery", "Delivered"]
 
-from products_ import product_index
-from couriers_ import courier_index_list
+from functions.products_ import product_index
+from functions.couriers_ import courier_index_list
 
 def orders_menu():
     print('*************Orders menu*************')
