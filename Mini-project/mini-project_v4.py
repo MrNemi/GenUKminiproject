@@ -21,7 +21,6 @@ while True:
     try:
         # Get user input for main menu option
         val = int(input('Enter a number to access main menu: '))
-        
         # If user input is 0, exit app
         if val == 0:
             save_products_list(), save_courier_list(), save_order_list()
