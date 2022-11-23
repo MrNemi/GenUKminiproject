@@ -22,8 +22,8 @@ As a business, the client wants the following app capabilities:
 • Setting design targets to achieve every week.
 
 # How did you guarantee the project's requirements?
-• Extensive code testing, mocking/parsing key functions.
-• Including error handling in every section of code where user input is required.
+• Extensive testing of key functions for output errors.
+• Use of error handling where user input was required.
 
 # If you had more time, what is one thing you would improve upon?
 • Loading and persisting data to a database using SQL.
