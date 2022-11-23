@@ -5,7 +5,7 @@ new_order = {}
 # CREATE order status list
 order_status_list = ["Preparing", "Awaiting Pickup", "Out for Delivery", "Delivered"]
 
-from functions.products_ import product_index
+from functions.products_ import product_index, clear_screen
 from functions.couriers_ import courier_index_list
 
 def orders_menu():
@@ -133,6 +133,7 @@ def delete_order():
     orders.remove(orders[order_index])
 
 def orders_loop():
+    clear_screen()
     # print orders menu
     orders_menu()
     while True:
@@ -169,6 +170,8 @@ def orders_loop():
                 print("Wrong input. Enter a value from 0 to 5")
             
             orders_continue = input("Still ordering? (yes/no): ")
+            if orders_continue == "yes":
+                orders_menu()
             if orders_continue == "no":
                 break
 

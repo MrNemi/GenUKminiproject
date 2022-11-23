@@ -2,6 +2,8 @@
 couriers = []
 new_courier = {}
 
+from functions.products_ import clear_screen
+
 def couriers_menu():
     print('*************Couriers menu*************')
     print('(0): Return to main menu\n(1): Print couriers list\n'
@@ -16,7 +18,7 @@ def couriers_list():
         print(f"Courier {idx}: {courier},\n")
         idx += 1
 
-def new_couriers(couriers_list, couriers: list):
+def new_couriers():
     # Get user input to update couriers list
     courier_name = input('Enter courier name: ').title()
     mobile_no = input('Enter courier phone number: ')
@@ -27,7 +29,7 @@ def new_couriers(couriers_list, couriers: list):
     # printing all the couriers
     couriers_list()
 
-def courier_index_list(couriers: list):
+def courier_index_list():
     # PRINT courier name with its index values
     print("\nCouriers List:\n")
     i = 0
@@ -37,7 +39,7 @@ def courier_index_list(couriers: list):
         i += 1
         j += 1
 
-def update_courier(courier_index_list, courier_index: int):
+def update_courier():
     courier_index_list()
     # GET user input for courier index value
     courier_index = input("Select index for the courier you wish to update: ")
@@ -56,7 +58,7 @@ def update_courier(courier_index_list, courier_index: int):
         else:
             change[key] = update
 
-def delete_courier(courier_index_list, couriers: list):
+def delete_courier():
     courier_index_list()
     # get user input for courier index value
     unit = int(input('Enter index value for courier to be deleted: '))
@@ -64,6 +66,7 @@ def delete_courier(courier_index_list, couriers: list):
     couriers.pop(unit)
 
 def couriers_loop():
+    clear_screen()
     # print courier menu options
     couriers_menu()
     while True:
@@ -80,7 +83,7 @@ def couriers_loop():
             elif coury == 1:
                 couriers_list()
 
-            #  If user input is 2, create new courier dict
+            #  If user input is 2, create new courier dictionary
             #  and append to couriers list.
             elif coury == 2:
                 new_couriers()
@@ -97,13 +100,11 @@ def couriers_loop():
                 print("Wrong input. Enter a value from 0 to 5")
             
             couriers_continue = input("Remain on the courier menu? (yes/no): ")
-            if couriers_continue == "no":
+            if couriers_continue == "yes":
+                couriers_menu()
+            elif couriers_continue == "no":
                 break
 
         except Exception as e:
             print(e)
             print("Enter valid input.")
-
-# Start the app using the real implementations of each dependency
-if __name__ == "__main__":
-    couriers_loop()

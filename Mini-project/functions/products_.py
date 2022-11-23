@@ -2,6 +2,16 @@
 products = []
 new_product = {}
 
+# 
+import os
+# import sleep to show output for some time period
+from time import sleep
+
+def clear_screen():
+    # sleep for 1 second after printing output
+    sleep(1)
+    os.system('cls')
+
 def product_menu():
     print('*************Product menu*************')
     print('[0]: Return to main menu\n[1]: Print products list\n'
@@ -68,6 +78,7 @@ def delete_product():
     view_products()
 
 def product_loop():
+    clear_screen()
     # print product menu options
     product_menu()
     while True:
@@ -100,6 +111,8 @@ def product_loop():
                 print("Wrong input. Enter a value from 0 to 4")
             
             products_continue = input("Remain on the products menu? (yes/no): ")
+            if products_continue == "yes":
+                product_menu()
             if products_continue == "no":
                 break
 
