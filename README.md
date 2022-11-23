@@ -2,9 +2,8 @@
 • A 6-week mini-project using Python to develop a simple app that lets the user make and edit orders.
 
 # Project Background
-• The client has launched a pop-up café in a busy business district. 
-• They offer home-made lunches and refreshments to the surrounding
-offices. 
+• The client has launched a pop-up café in a busy business district, 
+offering home-made lunches and refreshments to the surrounding offices. 
 • As such, they require a software application which helps them to
 log and track orders.
 
