@@ -23,7 +23,7 @@ As a business, the client wants the following app capabilities:
 
 # How did you guarantee the project's requirements?
 • Extensive testing of key functions for output errors.
-• Use of error handling where user input was required.
+• Use of error handling where user input is required.
 
 # If you had more time, what is one thing you would improve upon?
 • Loading and persisting data to a database using SQL.
