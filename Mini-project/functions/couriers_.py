@@ -11,12 +11,12 @@ def couriers_menu():
 def couriers_list():
     # printing out the couriers list
     print("\nCouriers available:\n")
-    i = 1
+    idx = 1
     for courier in couriers:
-        print(f"Courier {i}: {courier},\n")
-        i += 1
+        print(f"Courier {idx}: {courier},\n")
+        idx += 1
 
-def new_couriers():
+def new_couriers(couriers_list, couriers: list):
     # Get user input to update couriers list
     courier_name = input('Enter courier name: ').title()
     mobile_no = input('Enter courier phone number: ')
@@ -27,7 +27,7 @@ def new_couriers():
     # printing all the couriers
     couriers_list()
 
-def courier_index_list():
+def courier_index_list(couriers: list):
     # PRINT courier name with its index values
     print("\nCouriers List:\n")
     i = 0
@@ -37,10 +37,10 @@ def courier_index_list():
         i += 1
         j += 1
 
-def update_courier():
+def update_courier(courier_index_list, courier_index: int):
     courier_index_list()
     # GET user input for courier index value
-    courier_index = int(input("Select index for the courier you wish to update: "))
+    courier_index = input("Select index for the courier you wish to update: ")
     print(couriers[courier_index])
     change = couriers[courier_index]
 
@@ -56,13 +56,12 @@ def update_courier():
         else:
             change[key] = update
 
-def delete_courier():
+def delete_courier(courier_index_list, couriers: list):
     courier_index_list()
     # get user input for courier index value
     unit = int(input('Enter index value for courier to be deleted: '))
     # delete courier dict at index in products list
     couriers.pop(unit)
-    couriers_list()
 
 def couriers_loop():
     # print courier menu options
@@ -104,3 +103,7 @@ def couriers_loop():
         except Exception as e:
             print(e)
             print("Enter valid input.")
+
+# Start the app using the real implementations of each dependency
+if __name__ == "__main__":
+    couriers_loop()
