@@ -2,7 +2,7 @@
 products = []
 new_product = {}
 
-# 
+# importing os module
 import os
 # import sleep to show output for some time period
 from time import sleep
