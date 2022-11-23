@@ -1,8 +1,8 @@
 # Import key modules for cafe ordering app
-from products_ import *
-from couriers_ import *
-from orders_ import *
-from csvfile_handling import *
+from functions.products_ import *
+from functions.couriers_ import *
+from functions.orders_ import *
+from file_handling.csvfile_handling import *
 
 # Core Functions
 def main_menu():
