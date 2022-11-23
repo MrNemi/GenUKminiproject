@@ -8,7 +8,7 @@ offering home-made lunches and refreshments to the surrounding offices.
 log and track orders.
 
 # Client requirements
-As a business, the client wants the following app capabilities:
+As a business, the client wanted the following app capabilities:
 • Maintain a collection of products and couriers.
 • Create a new order on the system when a customer makes an order.
 • Update the status of an order i.e: preparing, out-for-delivery, delivered.
