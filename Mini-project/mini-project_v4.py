@@ -6,7 +6,7 @@ from file_handling.csvfile_handling import *
 
 # Core Functions
 def main_menu():
-    print("Welcome to Manny's :)\n"
+    print("\nWelcome to Manny's :)\n"
         '*************Main menu*************\n'
         '0: Save data and exit app\n1: Product menu\n'
         '2: Couriers menu\n3: Orders menu\n')
@@ -25,6 +25,10 @@ while True:
         if val == 0:
             save_products_list(), save_courier_list(), save_order_list()
             print('All data has been saved.\nExiting the app!!!')
+            # Give user the option to log back into the app or exit fully.
+            menu_continue = input("Return to main menu? (yes/no): ")
+            if menu_continue != "yes" and menu_continue== "no":
+                break
         
         # If user input is 1: Enter products menu
         elif val == 1:
@@ -37,13 +41,9 @@ while True:
         # If user input is 3: Enter orders menu
         elif val == 3:
             orders_loop()
-        
+
         else:
             print("Invalid input. Enter either 0, 1, 2, or 3")
-
-        menu_continue = input("Proceed to the main menu? (yes/no): ")
-        if menu_continue == "no":
-            break
 
     except ValueError as e:
         print(e)
