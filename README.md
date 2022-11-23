@@ -20,13 +20,15 @@ As a business, the client wants the following app capabilities:
 # How did your design go about meeting the project's requirements?
 • Weekly edits to program design in accordance with client specifications.
 • Setting design targets to achieve every week.
+• Reaching out to the client for further details on any ambiguous requirements.
 
 # How did you guarantee the project's requirements?
-• Extensive testing of key functions for output errors.
+• Testing project code for bugs.
 • Use of error handling where user input is required.
+• Using a checklist for different stages of project design.
 
 # If you had more time, what is one thing you would improve upon?
-• Loading and persisting data to a database using SQL.
+• Dependency injection and mocking of core functions.
 
 # What did you most enjoy implementing?
 • Source control using Git
